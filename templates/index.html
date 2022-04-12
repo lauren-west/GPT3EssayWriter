@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}"> </head>
+
+<body>
+    <h1>Welcome</h1>
+
+    <form class="check-form" method="POST" action="/">
+        <label for="essay-prompt"> Type in your Essay Prompt:</label>
+        <input name="essay-prompt" id="essay-prompt-box" />
+
+        <label>
+        <input type="submit" value="Submit"/>
+    </label>
+    </form>
+
+    <h1>Results</h1>
+    {% if essay %}
+    <p>{{essay}}</p>
+    {% endif %}
+
+</html>

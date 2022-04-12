@@ -25,7 +25,9 @@ def make_grade(essay):
     )
     return result["choices"][0]["text"]
 
-def write_essay(paragraph_number, essay_prompt):
+def write_essay(essay_prompt):
+
+    paragraph_number = 5
 
     prompt = f"Make an Outline with {paragraph_number} paragraphs answering the following prompt:\n{essay_prompt}"
     outline = make_GPT3_api_call(prompt)
@@ -64,7 +66,7 @@ def write_essay(paragraph_number, essay_prompt):
     return essay, grade
 
 
-print(write_essay(5, "Evaluate the state of World Politics and its influence on an average U.S. citizen."))
+# print(write_essay("Evaluate the state of World Politics and its influence on an average U.S. citizen."))
 
 
 
