@@ -8,10 +8,13 @@ dependencies:
   - backcall=0.2.0=pyh9f0ad1d_0
   - backports=1.0=py_2
   - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
+  - brotlipy=0.7.0=py310hca72f7f_1002
   - bzip2=1.0.8=h1de35cc_0
   - ca-certificates=2022.3.29=hecd8cb5_0
   - certifi=2020.6.20=pyhd3eb1b0_3
+  - cffi=1.15.0=py310hc55c11b_1
   - click=8.0.4=py310hecd8cb5_0
+  - cryptography=36.0.0=py310hf6deb26_0
   - dataclasses=0.8=pyh6d0b6a4_7
   - debugpy=1.5.1=py310he9d5cce_0
   - decorator=5.1.1=pyhd8ed1ab_0
@@ -20,6 +23,7 @@ dependencies:
   - flask=2.0.3=pyhd3eb1b0_0
   - freetype=2.11.0=hd8bbffd_0
   - giflib=5.2.1=haf1e3a3_0
+  - idna=3.3=pyhd3eb1b0_0
   - ipykernel=6.13.0=py310ha188af9_0
   - ipython=8.2.0=py310h2ec42d9_0
   - itsdangerous=2.0.1=pyhd3eb1b0_0
@@ -52,13 +56,17 @@ dependencies:
   - psutil=5.9.0=py310h1961e1f_1
   - ptyprocess=0.7.0=pyhd3deb0d_0
   - pure_eval=0.2.2=pyhd8ed1ab_0
+  - pycparser=2.21=pyhd3eb1b0_0
   - pygments=2.11.2=pyhd8ed1ab_0
+  - pyopenssl=22.0.0=pyhd3eb1b0_0
   - pyparsing=3.0.8=pyhd8ed1ab_0
+  - pysocks=1.7.1=py310hecd8cb5_0
   - python=3.10.4=hdfd78df_0
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.10=2_cp310
   - pyzmq=22.3.0=py310hcce64c8_1
   - readline=8.1.2=hca72f7f_1
+  - requests=2.27.1=pyhd3eb1b0_0
   - setuptools=58.0.4=py310hecd8cb5_0
   - six=1.16.0=pyh6c4a22f_0
   - sqlite=3.38.2=h707629a_0
@@ -77,13 +85,11 @@ dependencies:
   - pip:
     - charset-normalizer==2.0.12
     - et-xmlfile==1.1.0
-    - idna==3.3
     - numpy==1.22.3
     - openai==0.18.0
     - openpyxl==3.0.9
     - pandas==1.4.2
     - pandas-stubs==1.2.0.57
     - pytz==2022.1
-    - requests==2.27.1
     - tqdm==4.64.0
     - urllib3==1.26.9
