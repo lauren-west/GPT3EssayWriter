@@ -3,22 +3,63 @@
 <head>
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}"> </head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <body>
-    <h1>Welcome</h1>
+    <header class="nav">
+        <h1 class="header-component">GPT3 Essay Writer</h1>
+    </header>
+    <main>
+        <section class="container" id="prompt-section">
+            <form class="form-component" method="POST" action="/">
+                <textarea placeholder="Type or paste your text here." name="essay-prompt" class="text-area-component"></textarea>
+                <input class="input-component button-component" id="submit" type="submit" value="Submit"/>
+                <div class="paragraph-container">
+                    <input id="paragraph-count" class="input-component" name="paragraph-count" id="paragraphs" value="5"/>
+                    <div id="increment" class="counter">+</div>
+                    <div id="decrement" class="counter">-</div>
+                </div>
+            </form>
+        </section>
+        <section class="container" id="essay-section">
+            <input class="input-component" id="title-input" placeholder="Your essay title here" />
+            <div class="essay">
+            {% if essay %}
+            {% for p in essay[0][1:].split('\n') %}
+            <p>{{ p }}</p>
+            {% endfor %}
+            <p>Grade: {{ essay[1] }}</p>
+            {% else %}
+            <div id="spinner" class="spinner-component">
+                <div class="loader">Loading...</div>
+            </div>
+            {% endif %}
+            </div>
+        </section>
+    </main>
+    <script>
+        var spinner = document.getElementById('spinner');
+        var submit = document.getElementById('submit');
+        const increment = document.getElementById('increment')
+        const decrement = document.getElementById('decrement')
+        const paragraphInput = document.getElementById("paragraph-count");
+        
+        submit.addEventListener('click', onSubmit)
+        increment.addEventListener('click', onIncrement)
+        decrement.addEventListener('click', onDecrement)
 
-    <form class="check-form" method="POST" action="/">
-        <label for="essay-prompt"> Type in your Essay Prompt:</label>
-        <input name="essay-prompt" id="essay-prompt-box" />
+        function onSubmit() {
+            spinner.style.display = "block"
+        }
 
-        <label>
-        <input type="submit" value="Submit"/>
-    </label>
-    </form>
+        function onIncrement() {
+            paragraphInput.value = parseInt(paragraphInput.value) + 1
+        }
 
-    <h1>Results</h1>
-    {% if essay %}
-    <p>{{essay}}</p>
-    {% endif %}
-
+        function onDecrement() {
+            paragraphInput.value = parseInt(paragraphInput.value) - 1
+        }
+    </script>
 </html>
