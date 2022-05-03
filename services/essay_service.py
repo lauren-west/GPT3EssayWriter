@@ -3,6 +3,8 @@ import openai
 
 # authentication
 openai.organization = "org-4NKqHPrsBbd1Yi3HVZP1cZr2"
+if (os.getenv("OPENAI_ORG")):
+    openai.organization = os.getenv("OPENAI_ORG")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 essay_engine_id = 'text-davinci-002'
 
@@ -25,10 +27,7 @@ def make_grade(essay):
     )
     return result["choices"][0]["text"]
 
-def write_essay(essay_prompt):
-
-    paragraph_number = 5
-
+def write_essay(essay_prompt, paragraph_number = 5):
     prompt = f"Make an Outline with {paragraph_number} paragraphs answering the following prompt:\n{essay_prompt}"
     outline = make_GPT3_api_call(prompt)
 
@@ -37,7 +36,7 @@ def write_essay(essay_prompt):
     outline = outline[1:]
     outline = [ts[3:] for ts in outline]
 
-    prompt = f"Create a strong, original thesis statement about this essay prompt:\n{essay_prompt}"
+    prompt = f"Create a strong, original thesis statement about this essay prompt:\n{essay_prompt}."
     thesis = make_GPT3_api_call(prompt)
 
     paragraphs = []
@@ -55,7 +54,7 @@ def write_essay(essay_prompt):
         else:
             prompt = f"Generate a convincing, factful paragraph with the topic sentence: {topic_sentence}. Be sure to \
                 include authentic insights into the topics. Minimum total word count is {paragraph_number * 175} words. \
-                Split it into {paragraph_number} paragraphs"
+                Split it into {paragraph_number} paragraphs."
         paragraphs.append(make_GPT3_api_call(prompt))
     paragraphs = '\n\n'.join(paragraphs)
 

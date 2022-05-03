@@ -1,4 +1,197 @@
-#essay-prompt-box {
-    width: 75vw;
-    height: 50vw;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Noto Serif", serif;
+}
+
+.nav {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(61, 128, 221);
+  text-align: center;
+  padding: 15px 0;
+  color: white;
+  display: block;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 1;
+}
+
+.header-component {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#prompt-section {
+  padding-top: 75px;
+  height: 25vh;
+  min-height: 400px;
+  position: relative;
+}
+
+#essay-section {
+  border-top: 1px solid rgba(100, 100, 100);
+  min-height: 400px;
+}
+
+.text-area-component {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 25px 50px;
+  font-size: 16px;
+  resize: none;
+}
+
+.button-component {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  width: 150px;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgb(61, 128, 221);
+  color: white;
+  box-shadow: -2px -2px 10px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.paragraph-container {
+  position: absolute;
+  left: 200px;
+  bottom: 25px;
+  width: 200px;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+  color: black;
+  box-shadow: -2px -2px 10px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.counter {
+  color: black;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 25px;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+
+.counter:hover {
+  background-color: rgba(200, 200, 200);
+}
+
+.paragraph-container > input {
+  border: none;
+  width: 25px;
+  font-size: 16px;
+  outline: none;
+  background-color: white;
+}
+
+#title-input {
+  padding: 10px 25px;
+  width: 100%;
+  text-align: center;
+  border: none;
+  font-size: 36px;
+  outline: none;
+}
+
+#spinner {
+  display: none;
+}
+
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000000;
+  background: -moz-linear-gradient(left, #000000 10%, rgba(0, 0, 0, 0) 42%);
+  background: -webkit-linear-gradient(left, #000000 10%, rgba(0, 0, 0, 0) 42%);
+  background: -o-linear-gradient(left, #000000 10%, rgba(0, 0, 0, 0) 42%);
+  background: -ms-linear-gradient(left, #000000 10%, rgba(0, 0, 0, 0) 42%);
+  background: linear-gradient(to right, #000000 10%, rgba(0, 0, 0, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #000000;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+}
+
+.loader:after {
+  background: white;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.essay {
+  padding: 25px 50px;
+  font-size: 16px;
 }
