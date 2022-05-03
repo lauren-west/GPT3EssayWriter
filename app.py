@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from services.essay_service import *
 
+port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
@@ -14,4 +15,4 @@ def index():
         essay = write_essay(essay_prompt, paragraph_number=paragraph_count)
     return render_template('index.html', essay=essay)
 
-app.run(host='0.0.0.0', port=81)
+app.run(port=port)
