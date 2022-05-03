@@ -15,4 +15,5 @@ def index():
         essay = write_essay(essay_prompt, paragraph_number=paragraph_count)
     return render_template('index.html', essay=essay)
 
-app.run(port=port)
+if __name__ == '__main__':
+    app.run(port=port)
